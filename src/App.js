@@ -13,7 +13,7 @@ import useFetch from 'use-http'
 
 const App = () => {
   // lidando com formularios
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch } = useForm();
 
 
   const {
@@ -21,16 +21,13 @@ const App = () => {
   } = useFetch('https://pokeapi.co/api/v2/pokemon', {}, [])
 
   const {
-    get, loading: loadingGet, error: errorGet, data: pokemon
+    get, loading, error: errorGet, data: pokemon
   } = useFetch('https://pokeapi.co/api/v2/pokemon')
 
 
   const onSubmit = async form => {
-    const response = await get(`/${form.nome}`)
     console.log({ errorGet, pokemon })
   }
-
-
 
   console.log({ nome: watch('nome') })
 
