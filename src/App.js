@@ -1,20 +1,14 @@
-import { useState, useCallback, useMemo, useEffect } from 'react'
+import { useMemo } from 'react'
 import {
   Container,
-  Title,
-  Count,
-  LabelButton,
   Input,
   Label,
-  ContainInput,
   ContainForm,
   ButtonSearch,
   TextButton,
   Search,
 } from './styles'
-import { Button } from './components'
 import { useForm } from "react-hook-form";
-import axios from 'axios';
 import useFetch from 'use-http'
 
 const App = () => {
