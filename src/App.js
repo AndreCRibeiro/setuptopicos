@@ -15,29 +15,25 @@ const App = () => {
   // lidando com formularios
   const { register, handleSubmit, watch } = useForm();
 
-
   const {
     loading, error, data: pokemons
   } = useFetch('https://pokeapi.co/api/v2/pokemon', {}, [])
 
-  const {
-    get, error: errorGet, data: pokemon
-  } = useFetch('https://pokeapi.co/api/v2/pokemon')
-
+  const { error: errorGet, data: pokemon } = useFetch('https://pokeapi.co/api/v2/pokemon')
 
   const onSubmit = async form => {
-    console.log({ errorGet, pokemon })
+    console.log({ errorGet, pokemon, form })
   }
 
   console.log({ nome: watch('nome') })
 
   const showPokemons = useMemo(
     () => !watch('nome') && !error
-    , [error, watch('nome')])
+    , [error, watch])
 
   const showPokemon = useMemo(
     () => !!watch('nome') && !errorGet && pokemon
-    , [error, watch('nome'), pokemon])
+    , [errorGet, watch, pokemon])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
