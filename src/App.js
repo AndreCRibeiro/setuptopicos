@@ -21,7 +21,7 @@ const App = () => {
   } = useFetch('https://pokeapi.co/api/v2/pokemon', {}, [])
 
   const {
-    get, loading, error: errorGet, data: pokemon
+    get, error: errorGet, data: pokemon
   } = useFetch('https://pokeapi.co/api/v2/pokemon')
 
 
@@ -69,32 +69,3 @@ const App = () => {
 }
 
 export default App;
-
-
-/*
-const [pokemons, setPokemons] = useState([])
-
-  const requestPokemons = async () => {
-    try {
-      const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
-      setPokemons(response.data.results)
-      console.log('response -> ', response);
-    } catch (error) {
-      console.log('error ->', error);
-    }
-  }
-
-  useEffect(() => {
-    requestPokemons()
-  }, [])
-   <Title>Form React</Title>
-        <ContainForm>
-          <Label>Nome</Label>
-          <Input ref={register} name='nome' />
-          <Label>Sobrenome</Label>
-          <Input ref={register} name='sobrenome' />
-        </ContainForm>
-        <Button type='submit'>
-          <LabelButton>Enviar</LabelButton>
-        </Button>
-*/
